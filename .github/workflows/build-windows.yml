@@ -1,22 +1,18 @@
 name: Build Windows (Steev)
 
 on:
-  workflow_dispatch:            # adds a "Run workflow" button
+  workflow_dispatch:
     inputs:
       build-type:
         description: Debug or Release
         type: choice
         options: [Release, Debug]
         default: Release
-  push:
-    tags: ["v*"]                # pushing a tag like v1.0 also builds and makes a Release
 
 jobs:
   windows:
     name: Windows x64 (MinGW)
     runs-on: windows-2022
-    permissions:
-      contents: write           # only needed to publish a GitHub Release
     defaults:
       run:
         shell: msys2 {0}
@@ -56,45 +52,18 @@ jobs:
       - name: Build
         run: cmake --build --preset windows_mingw --config "$BUILD_TYPE"
 
-      - name: Install (normal + portable)
+      - name: Install (portable)
         run: |
           cmake --install build --config "$BUILD_TYPE"
-          cp -r install install-portable
-          cmake --install build --config "$BUILD_TYPE" --prefix install-portable --component portable
-          for d in install install-portable; do
-            (cd "$d" && find . -type f | sed 's|^\./||' > manifest.txt)
-          done
-
-      - name: Build installer
-        shell: pwsh
-        run: |
-          New-Item -Name NSISPlugins -ItemType Directory
-          Invoke-WebRequest https://github.com/negrutiu/nsis-nscurl/releases/download/v24.9.26.122/NScurl.zip -OutFile NSISPlugins\NScurl.zip
-          Expand-Archive -Path NSISPlugins\NScurl.zip -DestinationPath NSISPlugins\NScurl
-          cd install
-          makensis -NOCD "${{ github.workspace }}/build/program_info/win_install.nsi"
+          cmake --install build --config "$BUILD_TYPE" --component portable
+          (cd install && find . -type f | sed 's|^\./||' > manifest.txt)
 
       - name: Zip portable build
         shell: pwsh
-        run: Compress-Archive -Path install-portable\* -DestinationPath SteevLauncher-Windows-Portable.zip
+        run: Compress-Archive -Path install\* -DestinationPath SteevLauncher-Windows-Portable.zip
 
       - name: Upload portable zip
         uses: actions/upload-artifact@v7
         with:
           name: SteevLauncher-Windows-Portable-${{ env.BUILD_TYPE }}
           path: SteevLauncher-Windows-Portable.zip
-
-      - name: Upload installer
-        uses: actions/upload-artifact@v7
-        with:
-          name: SteevLauncher-Windows-Setup-${{ env.BUILD_TYPE }}
-          path: PrismLauncher-Setup.exe
-
-      - name: Publish GitHub Release (tags only)
-        if: startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            SteevLauncher-Windows-Portable.zip
-            PrismLauncher-Setup.exe
-

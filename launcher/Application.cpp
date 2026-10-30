@@ -396,7 +396,9 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         if (DesktopServices::isSnap()) {
             foo = QDir(qEnvironmentVariable("SNAP_USER_COMMON"));
         } else {
-            foo = QDir(FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), ".."));
+            foo = QDir(QDir::cleanPath(FS::PathCombine(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation),
+                                "../..", BuildConfig.LAUNCHER_APPID)));
+
         }
 
         dataPath = foo.absolutePath();
