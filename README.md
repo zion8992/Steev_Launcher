@@ -15,7 +15,7 @@
 
 - Every feature in Prism Launcher (mods, multi-accounts, skins, capes, offline and online accounts, multiple instances, etc...)
 - Rebranded to "Steev Launcher"
-- Custom theme and icon pack from `` (you can find their profile [here]())
+- Custom theme and icon pack
 
 ## Useful build commands
 
