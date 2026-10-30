@@ -10,3 +10,14 @@
   Steev Launcher is a custom launcher for Minecraft that allows you to easily manage multiple installations of Minecraft at once.<br />
   <br />This is a <b>fork</b> of the MultiMC Launcher and is <b>not</b> endorsed by it.
 </p>
+
+
+## Useful build commands
+
+```sh
+git submodule update --init --recursive   # make submodules match this commit
+cmake --preset linux                       # configures into ./build
+cmake --build --preset linux --config Debug
+ctest --preset linux --build-config Debug  # optional: run the tests (same as CI)
+cmake --install build --config Debug       # installs into ./install
+```
