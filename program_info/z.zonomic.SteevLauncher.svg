@@ -7,7 +7,7 @@
    version="1.1"
    viewBox="0 0 12.7 12.7"
    id="svg13"
-   sodipodi:docname="org.prismlauncher.PrismLauncher.svg"
+   sodipodi:docname="z.zonomic.SteevLauncher.svg"
    inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -28,8 +28,8 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="11.844039"
-     inkscape:cx="25.455844"
-     inkscape:cy="33.772264"
+     inkscape:cx="25.624705"
+     inkscape:cy="33.772263"
      inkscape:window-width="1920"
      inkscape:window-height="1010"
      inkscape:window-x="0"
@@ -152,13 +152,13 @@
   <text
      xml:space="preserve"
      style="font-size:3.76741px;writing-mode:lr-tb;direction:ltr;fill:#e28e8e;stroke-width:0.313951"
-     x="1.7597687"
-     y="9.0794058"
+     x="1.8968415"
+     y="9.1667805"
      id="text13"
-     transform="scale(0.97782901,1.0226737)"><tspan
+     transform="scale(0.977829,1.0226737)"><tspan
        sodipodi:role="line"
        id="tspan13"
        style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.37204px;font-family:Sans;-inkscape-font-specification:'Sans, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#1a1a1a;stroke-width:0.313951"
-       x="1.7597687"
-       y="9.0794058">SL</tspan></text>
+       x="1.8968415"
+       y="9.1667805">SL</tspan></text>
 </svg>

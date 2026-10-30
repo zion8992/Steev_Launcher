@@ -11,6 +11,12 @@
   <br />This is a <b>fork</b> of the MultiMC Launcher and is <b>not</b> endorsed by it.
 </p>
 
+# Features
+
+- Every feature in Prism Launcher (mods, multi-accounts, skins, capes, offline and online accounts, multiple instances, etc...)
+- Rebranded to "Steev Launcher"
+
+
 
 ## Useful build commands
 
