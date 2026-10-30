@@ -10,7 +10,7 @@ endif()
 
 set(Launcher_CommonName "SteevLauncher")
 set(Launcher_DisplayName "Steev Launcher")
-set(Launcher_AppID "org.prismlauncher.PrismLauncher")
+set(Launcher_AppID "z.zonomic.SteevLauncher")
 set(Launcher_Domain "prismlauncher.org")
 set(Launcher_Git "https://github.com/PrismLauncher/PrismLauncher")
 
