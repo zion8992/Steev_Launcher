@@ -31,6 +31,7 @@ void SetupWizard::retranslate()
     setButtonText(QWizard::FinishButton, tr("&Finish"));
     setButtonText(QWizard::CustomButton1, tr("&Refresh"));
     setWindowTitle(tr("%1 Quick Setup").arg(BuildConfig.LAUNCHER_DISPLAYNAME));
+    setWindowTitle(tr("Welcome to %1").arg(BuildConfig.LAUNCHER_DISPLAYNAME));
 }
 
 BaseWizardPage* SetupWizard::getBasePage(int id)
